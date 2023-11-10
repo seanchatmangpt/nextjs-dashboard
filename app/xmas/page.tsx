@@ -2,7 +2,7 @@
 
 // import { UltimateGuide } from "@/components/ultimate-guide";
 
-import { SantasWorkshopSlack } from "@/components/santas-workshop-slack";
+import SantasWorkshopSlack from "@/components/santas-workshop-slack";
 
 export default function Page() {
   // return <ChristmasBlogPage />;
