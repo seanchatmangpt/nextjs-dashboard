@@ -37,10 +37,7 @@ export function WorkshopLanding() {
           <Link className="text-lg font-semibold" href="#">
             Login
           </Link>
-          <Button
-            className="text-lg font-semibold px-4 py-2 rounded-md bg-white dark:bg-gray-200 text-red-600 dark:text-red-400"
-            href="/signup"
-          >
+          <Button className="text-lg font-semibold px-4 py-2 rounded-md bg-white dark:bg-gray-200 text-red-600 dark:text-red-400">
             Sign Up
           </Button>
         </div>
