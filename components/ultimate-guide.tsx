@@ -3,20 +3,23 @@
  * @see https://v0.dev/t/Rj5d9JwjcbT
  */
 
-
 export function UltimateGuide() {
   return (
     <div className="px-4 py-6 md:px-6 md:py-12 lg:py-16">
       <article className="prose prose-zinc mx-auto max-w-6xl dark:prose-invert">
         <div className="space-y-2 not-prose">
           <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl lg:leading-[3.5rem]">
-            The Ultimate Guide to a Spectacular Christmas: Gifts, Decor, and Recipes
+            The Ultimate Guide to a Spectacular Christmas: Gifts, Decor, and
+            Recipes
           </h1>
-          <p className="text-zinc-500 dark:text-zinc-400">Posted on November 25, 2023</p>
+          <p className="text-zinc-500 dark:text-zinc-400">
+            Posted on November 25, 2023
+          </p>
         </div>
         <p>
-          Christmas is right around the corner, and the festive spirit is in the air! It's time to celebrate with gifts,
-          decorations, and mouthwatering recipes.
+          Christmas is right around the corner, and the festive spirit is in the
+          air! It&apos;s time to celebrate with gifts, decorations, and
+          mouthwatering recipes.
         </p>
         <figure>
           <img
@@ -26,7 +29,9 @@ export function UltimateGuide() {
             src="/placeholder.svg"
             width="1250"
           />
-          <figcaption>Beautiful Christmas decorations to inspire you</figcaption>
+          <figcaption>
+            Beautiful Christmas decorations to inspire you
+          </figcaption>
         </figure>
         <div className="my-4">
           <img
@@ -43,13 +48,14 @@ export function UltimateGuide() {
         </div>
         <h2>Top Christmas Gift Ideas</h2>
         <p>
-          Choosing the perfect Christmas gift can be a daunting task. But don't worry, we've got you covered with our
-          top Christmas gift ideas.
+          Choosing the perfect Christmas gift can be a daunting task. But don't
+          worry, we've got you covered with our top Christmas gift ideas.
         </p>
         <h2>Holiday Decorating Tips</h2>
         <p>
-          Transform your home into a Christmas wonderland with our holiday decorating tips. From Christmas tree
-          decorations to festive table settings, we have all the inspiration you need.
+          Transform your home into a Christmas wonderland with our holiday
+          decorating tips. From Christmas tree decorations to festive table
+          settings, we have all the inspiration you need.
         </p>
         <figure>
           <img
@@ -76,10 +82,11 @@ export function UltimateGuide() {
         </div>
         <h2>Delicious Christmas Recipes</h2>
         <p>
-          Christmas is a time for indulgence, and we've got the best Christmas recipes for you to try. From traditional
-          roast turkey to decadent desserts, we have something for everyone.
+          Christmas is a time for indulgence, and we've got the best Christmas
+          recipes for you to try. From traditional roast turkey to decadent
+          desserts, we have something for everyone.
         </p>
       </article>
     </div>
-  )
+  );
 }

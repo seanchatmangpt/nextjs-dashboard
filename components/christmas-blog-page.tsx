@@ -61,8 +61,8 @@ export function ChristmasBlogPage() {
         </figure>
         <h2>Holiday Recipes</h2>
         <p>
-          What's Christmas without delicious food? Here are some mouth-watering
-          recipes to try this holiday season.
+          What&apos;s Christmas without delicious food? Here are some
+          mouth-watering recipes to try this holiday season.
         </p>
         <div className="p-4 bg-red-100 dark:bg-red-800 rounded-md my-4">
           <h4>Ad placement</h4>

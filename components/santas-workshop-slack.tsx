@@ -46,7 +46,7 @@ export function SantasWorkshopSlack() {
             <path d="M4.9 14.7 7 18.9" />
           </svg>
           <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-            Santa's Workshop
+            Santa&apos;s Workshop
           </h1>
         </div>
         <Button className="text-sm" variant="outline">
