@@ -1,0 +1,24 @@
+---
+to: _templates/<%= name %>/<%= action || 'new' %>/hello.ejs.t
+sh: cat > <%= cwd %>/test.piped
+force: true
+---
+---
+to: app/hello.js
+---
+const hello = ```
+Hello!
+This is your first hygen template.
+
+Learn what it can do here:
+
+https://github.com/jondot/hygen
+```
+
+this demonstrates hygen loaded up .hygen.js and extended helpers.
+
+<%=  %>
+
+console.log(hello)
+
+

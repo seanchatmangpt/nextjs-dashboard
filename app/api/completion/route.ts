@@ -28,7 +28,8 @@ Business: ${prompt}
 Slogans:`,
   });
   // Convert the response into a friendly text-stream
-  const stream = OpenAIStream(response);
+  // const stream = OpenAIStream(response);
+
   // Respond with the stream
-  return new StreamingTextResponse(stream);
+  return new StreamingTextResponse(response.toReadableStream());
 }

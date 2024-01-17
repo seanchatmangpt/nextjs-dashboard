@@ -4,7 +4,6 @@ import { z } from "zod";
 import { sql } from "@vercel/postgres";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { signIn, signOut } from "@/auth";
 
 export type State = {
   errors?: {
@@ -14,20 +13,6 @@ export type State = {
   };
   message?: string | null;
 };
-
-export async function authenticate(
-  prevState: string | undefined,
-  formData: FormData,
-) {
-  try {
-    await signIn("credentials", Object.fromEntries(formData));
-  } catch (error) {
-    if ((error as Error).message.includes("CredentialsSignin")) {
-      return "CredentialSignin";
-    }
-    throw error;
-  }
-}
 
 const InvoiceSchema = z.object({
   id: z.string(),
@@ -113,8 +98,4 @@ export async function updateInvoice(id: string, formData: FormData) {
 export async function deleteInvoice(id: string) {
   await sql`DELETE FROM invoices WHERE id = ${id}`;
   revalidatePath("/dashboard/invoices");
-}
-
-export async function deauthenticate() {
-  await signOut({ redirectTo: "/" });
 }

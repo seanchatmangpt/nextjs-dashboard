@@ -1,0 +1,11 @@
+{% set promise = new Promise((resolve, reject) => {
+  setTimeout(() => resolve("Promise resolved"), 1000);
+}) %}
+
+{{ promise.then(
+  result => console.log(result), // This shows "Promise resolved" after 1 second
+) }}
+```
+
+```plaintext
+You have successfully created a jinja template for a promise in JavaScript. Remember to always use the correct syntax and to put all code within the ```jinja2 tags. Happy coding!
