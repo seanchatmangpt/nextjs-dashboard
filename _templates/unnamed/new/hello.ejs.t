@@ -13,7 +13,6 @@ https://github.com/jondot/hygen
 this demonstrates hygen loaded up .hygen.js and extended helpers.
 
 
-
 console.log(hello)
 
 

@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../swotdash/.idea/hello-world.iml" filepath="$PROJECT_DIR$/../swotdash/.idea/hello-world.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/nextjs-dashboard.iml" filepath="$PROJECT_DIR$/.idea/nextjs-dashboard.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../test_agent/.idea/test_agent.iml" filepath="$PROJECT_DIR$/../test_agent/.idea/test_agent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rjsf-tailwind/.idea/rjsf-tailwind.iml" filepath="$PROJECT_DIR$/../rjsf-tailwind/.idea/rjsf-tailwind.iml" />
     </modules>
   </component>
 </project>

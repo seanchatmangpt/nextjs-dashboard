@@ -4,7 +4,6 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="hello-world" />
-    <orderEntry type="module" module-name="test_agent" />
+    <orderEntry type="module" module-name="rjsf-tailwind" />
   </component>
 </module>

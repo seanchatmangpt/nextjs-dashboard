@@ -66,8 +66,8 @@ export async function createInvoice(prevState: State, formData: FormData) {
     };
   }
 
-  // Revalidate the cache for the invoices page and redirect the user.
-  revalidatePath("/dashboard/invoices");
+  // Revalidate the cache for the invoices component and redirect the user.
+  revalidatePath("/page/invoices");
   redirect("/dashboard/invoices");
 }
 
@@ -91,11 +91,46 @@ export async function updateInvoice(id: string, formData: FormData) {
     WHERE id = ${id}
   `;
 
-  revalidatePath("/dashboard/invoices");
+  revalidatePath("/page/invoices");
   redirect("/dashboard/invoices");
 }
 
 export async function deleteInvoice(id: string) {
   await sql`DELETE FROM invoices WHERE id = ${id}`;
-  revalidatePath("/dashboard/invoices");
+  revalidatePath("/page/invoices");
+}
+
+export async function createCustomerInquiry(prevState: any, formData: any) {
+  // Simple validation (as an example, expand according to needs)
+  const { name, email, subject, message } = formData;
+
+  console.log(name, email, subject, message);
+
+  // Check required fields
+  if (!name || !email || !subject || !message) {
+    return {
+      errors: {
+        name: !name ? ["Please enter your full name."] : undefined,
+        email: !email ? ["Please enter your email address."] : undefined,
+        subject: !subject ? ["Please enter the subject."] : undefined,
+        message: !message ? ["Please enter your inquiry message."] : undefined,
+      },
+      message: "Missing Fields. Failed to Create Inquiry.",
+    };
+  }
+
+  // Insert data into the database
+  // try {
+  //   await sql`
+  //     INSERT INTO customer_inquiries (name, email, subject, message)
+  //     VALUES (${name}, ${email}, ${subject}, ${message})
+  //   `;
+  // } catch (error) {
+  //   return {
+  //     message: "Database Error: Failed to Create Inquiry.",
+  //   };
+  // }
+
+  revalidatePath("/page/customer-inquiries");
+  redirect("/dashboard/customer-inquiries");
 }

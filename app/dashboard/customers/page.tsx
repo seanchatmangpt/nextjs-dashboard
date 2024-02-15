@@ -2,6 +2,12 @@ import { fetchFilteredCustomers } from "@/app/lib/data";
 import CustomersTable from "@/app/ui/customers/table";
 import { Metadata } from "next";
 
+import dynamic from "next/dynamic";
+
+const Dictaphone = dynamic(() => import("@/components/ui/Dictaphone"), {
+  ssr: false,
+});
+
 export const metadata: Metadata = {
   title: "Customers",
 };
@@ -21,6 +27,7 @@ export default async function Page({
   return (
     <main>
       <CustomersTable customers={customers} />
+      <Dictaphone />
     </main>
   );
 }
