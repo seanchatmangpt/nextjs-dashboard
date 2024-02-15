@@ -4,6 +4,7 @@ const {
   customers,
   revenue,
   users,
+  customerInquiries,
 } = require("../app/lib/placeholder-data.js");
 const bcrypt = require("bcrypt");
 
@@ -162,6 +163,45 @@ async function seedRevenue(client) {
   }
 }
 
+async function seedCustomerInquiries(client) {
+  try {
+    // Create the "customer_inquiries" table if it doesn't exist
+    const createTable = await client.sql`
+      CREATE TABLE IF NOT EXISTS customer_inquiries (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        email TEXT NOT NULL,
+        subject VARCHAR(255) NOT NULL,
+        message TEXT NOT NULL,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+      );
+    `;
+
+    console.log(`Created "customer_inquiries" table`);
+
+    // Insert data into the "customer_inquiries" table
+    const insertedInquiries = await Promise.all(
+      customerInquiries.map(async (inquiry) => {
+        return client.sql`
+          INSERT INTO customer_inquiries (name, email, subject, message)
+          VALUES (${inquiry.name}, ${inquiry.email}, ${inquiry.subject}, ${inquiry.message})
+          ON CONFLICT (id) DO NOTHING;
+        `;
+      }),
+    );
+
+    console.log(`Seeded ${insertedInquiries.length} customer inquiries`);
+
+    return {
+      createTable,
+      customerInquiries: insertedInquiries,
+    };
+  } catch (error) {
+    console.error("Error seeding customer inquiries:", error);
+    throw error;
+  }
+}
+
 async function main() {
   const client = await db.connect();
 
@@ -169,6 +209,7 @@ async function main() {
   await seedCustomers(client);
   await seedInvoices(client);
   await seedRevenue(client);
+  await seedCustomerInquiries(client);
 
   await client.end();
 }

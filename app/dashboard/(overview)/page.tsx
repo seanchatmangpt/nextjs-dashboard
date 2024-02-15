@@ -37,6 +37,14 @@ const newsAlerts = [
     text: "New regulations in EU market could affect our supply chain from Q2 onwards.",
     icon: CheckCircleIcon,
   },
+  {
+    title: "Regulatory Change",
+    date: "Jan 15, 2024",
+    status: "Action Required",
+    color: "red",
+    text: "Competitor XYZ has launched a new product that directly competes with our main line.",
+    icon: CheckCircleIcon,
+  },
 ];
 
 export default async function Page() {

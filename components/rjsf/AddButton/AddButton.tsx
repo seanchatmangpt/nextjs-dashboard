@@ -1,18 +1,18 @@
-import { BsPlus } from "@react-icons/all-files/bs/BsPlus"
 import {
   FormContextType,
   IconButtonProps,
   RJSFSchema,
   StrictRJSFSchema,
   TranslatableString,
-} from "@rjsf/utils"
+} from "@rjsf/utils";
+import { BsPlus } from "react-icons/bs";
 
 export default function AddButton<
   T = any,
   S extends StrictRJSFSchema = RJSFSchema,
   F extends FormContextType = any,
 >({ uiSchema, registry, ...props }: IconButtonProps<T, S, F>) {
-  const { translateString } = registry
+  const { translateString } = registry;
   return (
     <button
       {...props}
@@ -22,5 +22,5 @@ export default function AddButton<
     >
       <BsPlus />
     </button>
-  )
+  );
 }

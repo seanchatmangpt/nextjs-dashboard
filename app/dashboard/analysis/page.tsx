@@ -8,6 +8,8 @@ import {
   ArrowCircleUpIcon,
   ArrowCircleDownIcon,
 } from "@heroicons/react/solid";
+import { ChartBarIcon, LightBulbIcon } from "@heroicons/react/24/solid";
+import { PuzzleIcon } from "lucide-react";
 
 const ADSCAnalysis = {
   competitors: [
@@ -62,47 +64,60 @@ export default async function Page({
   const query = searchParams?.query || "";
 
   return (
-    <main>
-      <Title className="text-3xl font-semibold mb-4">ADSC Analysis</Title>
-
-      {ADSCAnalysis.competitors.map((competitor, index) => (
-        <Card key={index}>
-          <Title className="mt-6">{competitor.name}</Title>
-          <Text className="mt-2">
-            <Title className="text-xl font-semibold">SWOT Analysis:</Title>
-            {competitor.swot.strengths.map((strength, i) => (
-              <Text key={i}>Strength: {strength}</Text>
-            ))}
-            {competitor.swot.weaknesses.map((weakness, i) => (
-              <Text key={i}>Weakness: {weakness}</Text>
-            ))}
-            {competitor.swot.opportunities.map((opportunity, i) => (
-              <Text key={i}>Opportunity: {opportunity}</Text>
-            ))}
-            {competitor.swot.threats.map((threat, i) => (
-              <Text key={i}>Threat: {threat}</Text>
-            ))}
-          </Text>
-          <Text className="mt-6">
-            <Title className="text-xl font-semibold">VRIO Analysis:</Title>
-            <Text>Value: {competitor.vrio.value}</Text>
-            <Text>Rarity: {competitor.vrio.rarity}</Text>
-            <Text>Imitability: {competitor.vrio.imitability}</Text>
-            <Text>Organization: {competitor.vrio.organization}</Text>
-          </Text>
-          <Text className="mt-6">
-            <Title className="text-xl font-semibold">
-              Maslow's Hierarchy Positioning:
+    <>
+      <Grid>
+        {ADSCAnalysis.competitors.map((competitor, index) => (
+          <Card key={index} className="shadow-lg rounded-lg">
+            <Title className="text-2xl font-semibold mb-4">
+              {competitor.name}
             </Title>
-            <Text>{competitor.maslow_position.relevance}</Text>
-          </Text>
-          <Flex className="mt-6 pt-4 border-t">
-            <Button size="xs" variant="light" iconPosition="right">
-              View more
-            </Button>
-          </Flex>
-        </Card>
-      ))}
-    </main>
+            <div className="space-y-4">
+              <section>
+                <Title className="text-xl font-semibold flex items-center mb-2">
+                  <ChartBarIcon className="w-6 h-6 mr-2" /> SWOT Analysis
+                </Title>
+                <div className="ml-4">
+                  {Object.entries(competitor.swot).map(([key, value], i) => (
+                    <div key={i}>
+                      <Text className="font-semibold">
+                        {key.charAt(0).toUpperCase() + key.slice(1)}:
+                      </Text>
+                      {value.map((item, idx) => (
+                        <Text key={idx} className="ml-4">
+                          - {item}
+                        </Text>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              <section>
+                <Title className="text-xl font-semibold flex items-center mb-2">
+                  <PuzzleIcon className="w-6 h-6 mr-2" /> VRIO Analysis
+                </Title>
+                <div className="ml-4">
+                  {Object.entries(competitor.vrio).map(([key, value], i) => (
+                    <Text key={i}>
+                      {key}: {value}
+                    </Text>
+                  ))}
+                </div>
+              </section>
+
+              <section>
+                <Title className="text-xl font-semibold flex items-center mb-2">
+                  <LightBulbIcon className="w-6 h-6 mr-2" /> Maslow's Hierarchy
+                  Positioning
+                </Title>
+                <Text className="ml-4">
+                  {competitor.maslow_position.relevance}
+                </Text>
+              </section>
+            </div>
+          </Card>
+        ))}
+      </Grid>
+    </>
   );
 }

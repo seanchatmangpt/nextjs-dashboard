@@ -120,16 +120,16 @@ export async function createCustomerInquiry(prevState: any, formData: any) {
   }
 
   // Insert data into the database
-  // try {
-  //   await sql`
-  //     INSERT INTO customer_inquiries (name, email, subject, message)
-  //     VALUES (${name}, ${email}, ${subject}, ${message})
-  //   `;
-  // } catch (error) {
-  //   return {
-  //     message: "Database Error: Failed to Create Inquiry.",
-  //   };
-  // }
+  try {
+    await sql`
+      INSERT INTO customer_inquiries (name, email, subject, message)
+      VALUES (${name}, ${email}, ${subject}, ${message})
+    `;
+  } catch (error) {
+    return {
+      message: "Database Error: Failed to Create Inquiry.",
+    };
+  }
 
   revalidatePath("/page/customer-inquiries");
   redirect("/dashboard/customer-inquiries");

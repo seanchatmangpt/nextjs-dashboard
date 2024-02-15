@@ -5,6 +5,7 @@ import {
   HomeIcon,
   DocumentDuplicateIcon,
   MicrophoneIcon,
+  BeakerIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -14,14 +15,19 @@ import { useSpeechContext } from "@/hooks/SpeechContext";
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
 const links = [
-  { name: "Home", href: "/page", icon: HomeIcon },
+  { name: "Home", href: "/dashboard", icon: HomeIcon },
   {
     name: "Battlecards",
-    href: "/page/battlecards",
+    href: "/dashboard/battlecards",
     icon: DocumentDuplicateIcon,
   },
-  { name: "Salespeople", href: "/page/salespeople", icon: UserGroupIcon },
-  { name: "Analysis", href: "/page/analysis", icon: UserGroupIcon },
+  // { name: "Salespeople", href: "/dashboard/salespeople", icon: UserGroupIcon },
+  { name: "Analysis", href: "/dashboard/analysis", icon: BeakerIcon },
+  {
+    name: "inquire",
+    href: "/dashboard/inquire",
+    icon: UserGroupIcon,
+  },
 ];
 
 export default function NavLinks() {
@@ -62,7 +68,7 @@ export default function NavLinks() {
           </Link>
         );
       })}
-      <div>
+      <div className="hidden">
         <button onClick={handleStartListening} className="p-2">
           <MicrophoneIcon className="w-6 h-6 text-green-500" />
         </button>

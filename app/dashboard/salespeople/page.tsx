@@ -17,7 +17,7 @@ const generateFormattedSalespeople = (count = 10) => {
     id: faker.string.uuid(),
     name: faker.person.fullName(),
     email: faker.internet.email(),
-    image_url: faker.image.avatar(),
+    image_url: "https://loremflickr.com/32/32",
     total_sales: formatCurrency(faker.finance.amount(5000, 50000)),
     total_battlecards: faker.number.int({ min: 1, max: 20 }),
   }));

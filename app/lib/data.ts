@@ -232,3 +232,57 @@ export async function getUser(email: string) {
     throw new Error("Failed to fetch user.");
   }
 }
+
+export async function fetchFilteredInquiries(
+  query: string,
+  currentPage: number,
+) {
+  const offset = (currentPage - 1) * ITEMS_PER_PAGE;
+  noStore();
+
+  try {
+    const inquiries = await sql`
+      SELECT
+        id,
+        name,
+        email,
+        subject,
+        message,
+        created_at
+      FROM customer_inquiries
+      WHERE
+        name ILIKE ${`%${query}%`} OR
+        email ILIKE ${`%${query}%`} OR
+        subject ILIKE ${`%${query}%`} OR
+        message ILIKE ${`%${query}%`}
+      ORDER BY created_at DESC
+      LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
+    `;
+
+    return inquiries.rows;
+  } catch (error) {
+    console.error("Database Error:", error);
+    throw new Error("Failed to fetch inquiries.");
+  }
+}
+
+export async function fetchInquiriesPages(query: string) {
+  noStore();
+  try {
+    const count = await sql`
+      SELECT COUNT(*)
+      FROM customer_inquiries
+      WHERE
+        name ILIKE ${`%${query}%`} OR
+        email ILIKE ${`%${query}%`} OR
+        subject ILIKE ${`%${query}%`} OR
+        message ILIKE ${`%${query}%`}
+    `;
+
+    const totalPages = Math.ceil(Number(count.rows[0].count) / ITEMS_PER_PAGE);
+    return totalPages;
+  } catch (error) {
+    console.error("Database Error:", error);
+    throw new Error("Failed to fetch total number of inquiries.");
+  }
+}
