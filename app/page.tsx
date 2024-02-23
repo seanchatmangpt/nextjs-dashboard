@@ -15,7 +15,7 @@ export default function Page() {
           <p
             className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}
           >
-            <strong>Welcome to Acme.</strong> This is the AI powered competitive
+            <strong>Welcome to ADSC.</strong> This is the AI powered competitive
             intelligence dashboard.
           </p>
           <Link

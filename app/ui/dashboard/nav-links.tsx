@@ -6,6 +6,8 @@ import {
   DocumentDuplicateIcon,
   MicrophoneIcon,
   BeakerIcon,
+  MapIcon,
+  ChevronDoubleDownIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -23,8 +25,10 @@ const links = [
   },
   // { name: "Salespeople", href: "/dashboard/salespeople", icon: UserGroupIcon },
   { name: "Analysis", href: "/dashboard/analysis", icon: BeakerIcon },
+  { name: "Landscape", href: "/dashboard/landscape", icon: MapIcon },
+  { name: "War Game", href: "/dashboard/war", icon: ChevronDoubleDownIcon },
   {
-    name: "inquire",
+    name: "Inquire",
     href: "/dashboard/inquire",
     icon: UserGroupIcon,
   },

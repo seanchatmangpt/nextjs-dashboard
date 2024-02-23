@@ -45,7 +45,41 @@ const ADSCAnalysis = {
           "SCIP's key strengths lie in its expertise in strategic intelligence and its ability to provide customized solutions for its clients.",
       },
     },
-    // Add other competitors here...
+    {
+      name: "TrendForge Inc.", // Fictional competitor, replace with a fitting name
+      swot: {
+        strengths: [
+          "Cutting-edge tech stack with rapid prototyping capability",
+          "Aggressive social media and influencer marketing approach",
+          "Data-driven analysis of emerging consumer needs",
+        ],
+        weaknesses: [
+          "Focus on short-term gains may hamper long-term vision",
+          "Reliance on 'viral' trends potentially creates unstable model",
+          "Heavy investment in external partnerships burdens their bottom line",
+        ],
+        opportunities: [
+          "Capture a portion of the traditional enterprise market",
+          "Build deeper data and analysis capabilities in-house",
+          "Develop more sustainable innovation practices",
+        ],
+        threats: [
+          "Established players focusing on similar customer segments",
+          "Changing regulatory landscape for user data acquisition",
+        ],
+      },
+      vrio: {
+        value: "Rapid market-response with iterative approach",
+        rarity: "Cutting-edge tech with in-house development",
+        imitability: "Data-driven analysis approach could be adopted",
+        organization: "Lean organizational structure (potential risk factor)",
+      },
+      maslow_position: {
+        level: "Belonging & Love",
+        relevance:
+          "TrendForge Inc. taps into immediate social validation and sense of community as key emotional triggers.",
+      },
+    },
   ],
 };
 
@@ -65,7 +99,7 @@ export default async function Page({
 
   return (
     <>
-      <Grid>
+      <Grid numItemsMd={2}>
         {ADSCAnalysis.competitors.map((competitor, index) => (
           <Card key={index} className="shadow-lg rounded-lg">
             <Title className="text-2xl font-semibold mb-4">

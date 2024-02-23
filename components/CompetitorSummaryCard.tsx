@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Text, Button, Icon, Flex, Title } from "@tremor/react";
-import { ArrowNarrowRightIcon } from "@heroicons/react/solid";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 interface CompetitorSummaryProps {
   competitorName: string;
@@ -22,7 +22,7 @@ const CompetitorSummaryCard: React.FC<CompetitorSummaryProps> = ({
         <Button
           size="xs"
           variant="light"
-          icon={ArrowNarrowRightIcon}
+          icon={ArrowRightIcon}
           iconPosition="right"
         >
           View more
