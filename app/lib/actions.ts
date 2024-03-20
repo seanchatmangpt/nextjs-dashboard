@@ -134,3 +134,40 @@ export async function createCustomerInquiry(prevState: any, formData: any) {
   revalidatePath("/page/customer-inquiries");
   redirect("/dashboard/customer-inquiries");
 }
+
+export async function createAssessment(prevState: any, formData: any) {
+  // Simple validation (as an example, expand according to needs)
+  const {
+    firstName,
+    lastName,
+    company,
+    email,
+    mainPhone,
+    cellPhone,
+    agreeToTerms,
+  } = formData;
+
+  console.log(
+    firstName,
+    lastName,
+    company,
+    email,
+    mainPhone,
+    cellPhone,
+    agreeToTerms,
+  );
+
+  // Insert data into the database
+  try {
+    await sql`
+      INSERT INTO assessments (first_name, last_name, company, email, main_phone, cell_phone)
+      VALUES (${firstName}, ${lastName}, ${company}, ${email}, ${mainPhone}, ${cellPhone})
+    `;
+  } catch (error) {
+    return {
+      message: "Database Error: Failed to Create Assessment.",
+    };
+  }
+
+  redirect("/assessment/1");
+}

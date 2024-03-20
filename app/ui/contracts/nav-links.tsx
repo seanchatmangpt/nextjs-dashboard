@@ -17,20 +17,11 @@ import { useSpeechContext } from "@/hooks/SpeechContext";
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
 const links = [
-  { name: "Home", href: "/dashboard", icon: HomeIcon },
+  { name: "Home", href: "/contracts", icon: HomeIcon },
   {
-    name: "Battlecards",
-    href: "/dashboard/battlecards",
+    name: "Contract",
+    href: "/contracts/contract",
     icon: DocumentDuplicateIcon,
-  },
-  // { name: "Salespeople", href: "/dashboard/salespeople", icon: UserGroupIcon },
-  { name: "Analysis", href: "/dashboard/analysis", icon: BeakerIcon },
-  { name: "Landscape", href: "/dashboard/landscape", icon: MapIcon },
-  { name: "War Game", href: "/dashboard/war", icon: ChevronDoubleDownIcon },
-  {
-    name: "Assessment",
-    href: "/assessment",
-    icon: UserGroupIcon,
   },
 ];
 
