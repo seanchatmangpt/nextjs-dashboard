@@ -9,7 +9,7 @@ import logo from "@/app/dashboard/inquire/ADSC-Main-Logo.png";
 import TailwindForm from "@/components/rjsf";
 import { RJSFSchema } from "@rjsf/utils";
 import { useFormState } from "react-dom";
-import { createCustomerInquiry } from "@/app/lib/actions";
+import { createAssessment, createCustomerInquiry } from "@/app/lib/actions";
 
 const schema: RJSFSchema = {
   type: "object",
@@ -74,7 +74,7 @@ const schema: RJSFSchema = {
 };
 
 export default function Page() {
-  const [state, dispatch] = useFormState(createCustomerInquiry, {});
+  const [state, dispatch] = useFormState(createAssessment, {});
 
   const router = useRouter();
 
@@ -90,6 +90,10 @@ export default function Page() {
 
   const showConfirmationPopup = (formData) => {
     if (confirm("Are you sure you want to submit the form?")) {
+      for (let step = 1; step <= 5; step++) {
+        localStorage.removeItem(`formDataStep${step}`); // Optionally, clear saved form data from local storage
+      }
+
       submitForm(formData);
     }
   };

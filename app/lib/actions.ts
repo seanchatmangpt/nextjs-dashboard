@@ -164,6 +164,8 @@ export async function createAssessment(prevState: any, formData: any) {
       VALUES (${firstName}, ${lastName}, ${company}, ${email}, ${mainPhone}, ${cellPhone})
     `;
   } catch (error) {
+    redirect("/assessment/1");
+
     return {
       message: "Database Error: Failed to Create Assessment.",
     };

@@ -94,6 +94,9 @@ steps:
       maturity_assessment: "{{ user_input }}"
 `;
 
+const PIPELINE_ENDPOINT =
+  "https://6fee-2600-1700-142c-2070-65bd-21f4-478f-c1a.ngrok-free.app/execute_pipeline/";
+
 export default function DSLPage() {
   const [dsl, setDSL] = useState("");
   const [report, setReport] = useState("");
@@ -124,17 +127,14 @@ export default function DSLPage() {
     try {
       // Here, transform formData to YAML or keep it as JSON based on your backend requirement
       // For JSON:
-      const response = await axios.post(
-        "https://6724-2600-1700-142c-2070-3d41-569f-1e32-cbc0.ngrok-free.app/execute_pipeline/",
-        {
-          yaml_content: pipeline,
-          initial_context: {
-            user_input: `questions${questions}\n\nNOTE: Missing or false count against the company\n\n${JSON.stringify(
-              { dsl },
-            )}`,
-          },
+      const response = await axios.post(PIPELINE_ENDPOINT, {
+        yaml_content: pipeline,
+        initial_context: {
+          user_input: `questions${questions}\n\nNOTE: Missing or false count against the company\n\n${JSON.stringify(
+            { dsl },
+          )}`,
         },
-      );
+      });
       // Handle response
       debugger;
       console.log(response);
